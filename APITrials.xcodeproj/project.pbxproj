@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		761D1C027BE5A549B38FE482 /* libPods-APITrials.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4911BDE4787DB463775FDE9B /* libPods-APITrials.a */; };
 		CDC1BDD81C36436D00D956E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC1BDD71C36436D00D956E0 /* main.m */; };
 		CDC1BDDB1C36436D00D956E0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC1BDDA1C36436D00D956E0 /* AppDelegate.m */; };
 		CDC1BDE11C36436D00D956E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC1BDDF1C36436D00D956E0 /* Main.storyboard */; };
@@ -35,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4911BDE4787DB463775FDE9B /* libPods-APITrials.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-APITrials.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		73337D7116997DEB082B79A9 /* Pods-APITrials.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APITrials.release.xcconfig"; path = "Pods/Target Support Files/Pods-APITrials/Pods-APITrials.release.xcconfig"; sourceTree = "<group>"; };
+		C338992AD0BFED29E3BE9564 /* Pods-APITrials.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APITrials.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APITrials/Pods-APITrials.debug.xcconfig"; sourceTree = "<group>"; };
 		CDC1BDD31C36436D00D956E0 /* APITrials.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APITrials.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC1BDD71C36436D00D956E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CDC1BDD91C36436D00D956E0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -57,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				761D1C027BE5A549B38FE482 /* libPods-APITrials.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		615507CA5E20B0677D24B250 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4911BDE4787DB463775FDE9B /* libPods-APITrials.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CDC1BDCA1C36436C00D956E0 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +97,8 @@
 				CDC1BDF21C36436D00D956E0 /* APITrialsTests */,
 				CDC1BDFD1C36436D00D956E0 /* APITrialsUITests */,
 				CDC1BDD41C36436D00D956E0 /* Products */,
+				FCAEF635A708A63B8742516D /* Pods */,
+				615507CA5E20B0677D24B250 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,6 +153,15 @@
 			path = APITrialsUITests;
 			sourceTree = "<group>";
 		};
+		FCAEF635A708A63B8742516D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C338992AD0BFED29E3BE9564 /* Pods-APITrials.debug.xcconfig */,
+				73337D7116997DEB082B79A9 /* Pods-APITrials.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,9 +169,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CDC1BE031C36436D00D956E0 /* Build configuration list for PBXNativeTarget "APITrials" */;
 			buildPhases = (
+				22CFA1AFD45DFA9BDE1F191D /* Check Pods Manifest.lock */,
 				CDC1BDCF1C36436D00D956E0 /* Sources */,
 				CDC1BDD01C36436D00D956E0 /* Frameworks */,
 				CDC1BDD11C36436D00D956E0 /* Resources */,
+				C3ED7BA6D741F8DD21961CB8 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -262,6 +288,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		22CFA1AFD45DFA9BDE1F191D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C3ED7BA6D741F8DD21961CB8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-APITrials/Pods-APITrials-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CDC1BDCF1C36436D00D956E0 /* Sources */ = {
@@ -409,6 +468,7 @@
 		};
 		CDC1BE041C36436D00D956E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C338992AD0BFED29E3BE9564 /* Pods-APITrials.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = APITrials/Info.plist;
@@ -421,6 +481,7 @@
 		};
 		CDC1BE051C36436D00D956E0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73337D7116997DEB082B79A9 /* Pods-APITrials.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = APITrials/Info.plist;
@@ -498,6 +559,7 @@
 				CDC1BE051C36436D00D956E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CDC1BE061C36436D00D956E0 /* Build configuration list for PBXNativeTarget "APITrialsTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +568,7 @@
 				CDC1BE081C36436D00D956E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CDC1BE091C36436D00D956E0 /* Build configuration list for PBXNativeTarget "APITrialsUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +577,7 @@
 				CDC1BE0B1C36436D00D956E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
