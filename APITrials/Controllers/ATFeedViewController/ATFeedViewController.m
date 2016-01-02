@@ -24,7 +24,7 @@
 
 static NSString *feedCollectionViewCellID = @"ATFeedCollectionViewCell";
 
-@interface ATFeedViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface ATFeedViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate>
 
 //IBOutlets
 @property (weak, nonatomic) IBOutlet UICollectionView *picsCollectionView;
@@ -32,8 +32,14 @@ static NSString *feedCollectionViewCellID = @"ATFeedCollectionViewCell";
 @property (weak, nonatomic) IBOutlet UICollectionView *gamingCollectionView;
 
 //Properties
+@property (strong, nonatomic) UICollectionView *collectionViewInContext;
 @property (strong, nonatomic) UITabBarController *baseTabBarController;
 @property (strong, nonatomic) NSMutableArray *storiesArray;
+@property (strong, nonatomic) NSArray *filteredArray;
+@property (assign, nonatomic) BOOL shouldShowSearchResults;
+
+@property (nonatomic) float searchBarBoundsY;
+@property (nonatomic,strong) UISearchBar *searchBar;
 @end
 
 @implementation ATFeedViewController
@@ -45,8 +51,6 @@ static NSString *feedCollectionViewCellID = @"ATFeedCollectionViewCell";
     self.storiesArray = [NSMutableArray array];
     
     self.baseTabBarController = (UITabBarController*)[self.navigationController parentViewController];
-    
-    
     
     //CollectionViews setup
     self.picsCollectionView.dataSource = self;
@@ -66,33 +70,36 @@ static NSString *feedCollectionViewCellID = @"ATFeedCollectionViewCell";
     [self.gamingCollectionView setCollectionViewLayout:flowLayout];
     [self.gamingCollectionView registerNib:feedCollectionViewCellNib forCellWithReuseIdentifier:feedCollectionViewCellID];
     
+    [self.picsCollectionView setContentInset:UIEdgeInsetsZero];
+    [self.funnyCollectionView setContentInset:UIEdgeInsetsZero];
+    [self.gamingCollectionView setContentInset:UIEdgeInsetsZero];
+    
     [self loadFeed];
+    [self addSearchBar];
 }
-
 
 
 - (void)loadFeed {
     int indexOfTab = (int)[[self.tabBarController viewControllers] indexOfObject:self.navigationController];
     
-    UICollectionView *collectionViewInContext;
     NSString *networkRoute;
     
     switch (indexOfTab) {
         case 0: {
             self.title = @"Pics";
-            collectionViewInContext = self.picsCollectionView;
+            self.collectionViewInContext = self.picsCollectionView;
             networkRoute = [ATNetworkRoutes getPicsFeedAPI];
             break;
         }
         case 1: {
             self.title = @"Funny";
-            collectionViewInContext = self.funnyCollectionView;
+            self.collectionViewInContext = self.funnyCollectionView;
             networkRoute = [ATNetworkRoutes getFunnyFeedAPI];
             break;
         }
         case 2: {
             self.title = @"Gaming";
-            collectionViewInContext = self.gamingCollectionView;
+            self.collectionViewInContext = self.gamingCollectionView;
             networkRoute = [ATNetworkRoutes getGamingFeedAPI];
             break;
         }
@@ -103,7 +110,7 @@ static NSString *feedCollectionViewCellID = @"ATFeedCollectionViewCell";
     [[VTNetworkingHelper sharedInstance] performRequestWithPath:networkRoute withAuth:NO withRequestJSONSerialized:YES withCompletionHandler:^(VTNetworkResponse *response) {
         if (response.isSuccessful) {
             self.storiesArray = [ATStory getStoriesArrayFromRawArray:[[response.data objectForKey:@"data"] objectForKey:@"children"]];
-            [collectionViewInContext reloadData];
+            [self.collectionViewInContext reloadData];
         } else {
             
         }
@@ -116,16 +123,30 @@ static NSString *feedCollectionViewCellID = @"ATFeedCollectionViewCell";
     // Dispose of any resources that can be recreated.
 }
 
+-(void)dealloc {
+    [self removeObservers];
+}
+
 #pragma mark - UICollectionView datasource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [self.storiesArray count];
+    if (self.shouldShowSearchResults) {
+        return [self.filteredArray count];
+    } else {
+        return [self.storiesArray count];
+    }
 }
 
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    ATStory *currentStory = [self.storiesArray objectAtIndex:indexPath.row];
+    ATStory *currentStory;
+    
+    if (self.shouldShowSearchResults) {
+        currentStory = [self.filteredArray objectAtIndex:indexPath.row];
+    } else {
+        currentStory = [self.storiesArray objectAtIndex:indexPath.row];
+    }
     
     ATFeedCollectionViewCell *feedCollectionViewCell = [collectionView dequeueReusableCellWithReuseIdentifier:feedCollectionViewCellID forIndexPath:indexPath];
     
@@ -152,11 +173,7 @@ static NSString *feedCollectionViewCellID = @"ATFeedCollectionViewCell";
     return CGSizeMake([UIScreen mainScreen].bounds.size.width, 140.0);
 }
 
-//- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-//
-//}
-//
-//
+
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 0.0f;
 }
@@ -166,15 +183,107 @@ static NSString *feedCollectionViewCellID = @"ATFeedCollectionViewCell";
     return 0.0f;
 }
 
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView
+                        layout:(UICollectionViewLayout*)collectionViewLayout
+        insetForSectionAtIndex:(NSInteger)section{
+    return UIEdgeInsetsMake(self.searchBar.frame.size.height, 0, 0, 0);
+}
 
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-//
-//}
-//
-//
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
-//
-//}
+- (void)searchForText:(NSString *)searchText {
+    NSString *predicateFormat = @"storyTitle contains[cd] %@";
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateFormat, searchText];
+    
+    self.filteredArray = [self.storiesArray filteredArrayUsingPredicate:predicate];
+}
 
 
+#pragma mark - search
+- (void)filterContentForSearchText:(NSString*)searchText {
+    [self searchForText:searchText];
+    [self.collectionViewInContext reloadData];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    // user did type something, check our datasource for text that looks the same
+    if (searchText.length>0) {
+        // search and reload data source
+        self.shouldShowSearchResults = YES;
+        [self filterContentForSearchText:searchText];
+        [self.collectionViewInContext reloadData];
+    }else{
+        // if text length == 0
+        // we will consider the searchbar is not active
+        self.shouldShowSearchResults = NO;
+    }
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [self cancelSearching];
+    [self.collectionViewInContext reloadData];
+}
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    self.shouldShowSearchResults = YES;
+    [self.view endEditing:YES];
+}
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+    // we used here to set self.searchBarActive = YES
+    // but we'll not do that any more... it made problems
+    // it's better to set self.searchBarActive = YES when user typed something
+    [self.searchBar setShowsCancelButton:YES animated:YES];
+}
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+    // this method is being called when search btn in the keyboard tapped
+    // we set searchBarActive = NO
+    // but no need to reloadCollectionView
+    self.shouldShowSearchResults = NO;
+    [self.searchBar setShowsCancelButton:NO animated:YES];
+}
+-(void)cancelSearching{
+    self.shouldShowSearchResults = NO;
+    [self.searchBar resignFirstResponder];
+    self.searchBar.text  = @"";
+}
+
+
+-(void)addSearchBar{
+    if (!self.searchBar) {
+        self.searchBarBoundsY = self.navigationController.navigationBar.frame.size.height + [UIApplication sharedApplication].statusBarFrame.size.height;
+        self.searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0,self.searchBarBoundsY, [UIScreen mainScreen].bounds.size.width, 44)];
+        self.searchBar.searchBarStyle       = UISearchBarStyleMinimal;
+        self.searchBar.tintColor            = [UIColor redColor];
+        self.searchBar.barTintColor         = [UIColor blackColor];
+        self.searchBar.delegate             = self;
+        self.searchBar.placeholder          = @"Search here";
+        
+        [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor blackColor]];
+        
+        // add KVO observer.. so we will be informed when user scroll colllectionView
+        [self addObservers];
+    }
+    
+    if (![self.searchBar isDescendantOfView:self.view]) {
+        [self.view addSubview:self.searchBar];
+    }
+}
+
+#pragma mark - observer
+- (void)addObservers{
+    [self.collectionViewInContext addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+}
+
+
+- (void)removeObservers{
+    [self.collectionViewInContext removeObserver:self forKeyPath:@"contentOffset" context:Nil];
+}
+
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(UICollectionView *)object change:(NSDictionary *)change context:(void *)context{
+    if ([keyPath isEqualToString:@"contentOffset"] && object == self.collectionViewInContext ) {
+        self.searchBar.frame = CGRectMake(self.searchBar.frame.origin.x,
+                                          self.searchBarBoundsY + ((-1* object.contentOffset.y)-self.searchBarBoundsY),
+                                          self.searchBar.frame.size.width,
+                                          self.searchBar.frame.size.height);
+    }
+}
 @end
