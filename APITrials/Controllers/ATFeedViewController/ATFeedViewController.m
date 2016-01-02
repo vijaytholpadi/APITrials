@@ -37,6 +37,7 @@ static NSString *feedCollectionViewCellID = @"ATFeedCollectionViewCell";
 @property (strong, nonatomic) NSMutableArray *storiesArray;
 @property (strong, nonatomic) NSArray *filteredArray;
 @property (assign, nonatomic) BOOL shouldShowSearchResults;
+@property (strong, nonatomic) UILabel *noResultsFoundLabel;
 
 @property (nonatomic) float searchBarBoundsY;
 @property (nonatomic,strong) UISearchBar *searchBar;
@@ -76,6 +77,7 @@ static NSString *feedCollectionViewCellID = @"ATFeedCollectionViewCell";
     
     [self loadFeed];
     [self addSearchBar];
+    [self setupNoResultsFoundLabel];
 }
 
 
@@ -118,6 +120,10 @@ static NSString *feedCollectionViewCellID = @"ATFeedCollectionViewCell";
 }
 
 
+-(void)viewDidLayoutSubviews {
+    [self.noResultsFoundLabel setCenter:self.collectionViewInContext.center];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -125,6 +131,16 @@ static NSString *feedCollectionViewCellID = @"ATFeedCollectionViewCell";
 
 -(void)dealloc {
     [self removeObservers];
+}
+
+- (void)setupNoResultsFoundLabel {
+    self.noResultsFoundLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [UIScreen mainScreen].bounds.size.width - 20, 22.0f)];
+    [self.noResultsFoundLabel setText:@"No Results Found"];
+    [self.noResultsFoundLabel setFont:[UIFont fontWithName:@"Helvetica-Regular" size:16.0f]];
+    [self.noResultsFoundLabel setCenter:self.collectionViewInContext.center];
+    [self.noResultsFoundLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.noResultsFoundLabel setHidden:YES];
+    [self.view addSubview:self.noResultsFoundLabel];
 }
 
 #pragma mark - UICollectionView datasource
@@ -195,6 +211,12 @@ static NSString *feedCollectionViewCellID = @"ATFeedCollectionViewCell";
     NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateFormat, searchText];
     
     self.filteredArray = [self.storiesArray filteredArrayUsingPredicate:predicate];
+    
+    if (![self.filteredArray count]) {
+        [self.noResultsFoundLabel setHidden:NO];
+    } else {
+        [self.noResultsFoundLabel setHidden:YES];
+    }
 }
 
 
@@ -215,6 +237,8 @@ static NSString *feedCollectionViewCellID = @"ATFeedCollectionViewCell";
         // if text length == 0
         // we will consider the searchbar is not active
         self.shouldShowSearchResults = NO;
+        [self filterContentForSearchText:searchText];
+        [self.noResultsFoundLabel setHidden:YES];
     }
 }
 
@@ -243,6 +267,7 @@ static NSString *feedCollectionViewCellID = @"ATFeedCollectionViewCell";
     self.shouldShowSearchResults = NO;
     [self.searchBar resignFirstResponder];
     self.searchBar.text  = @"";
+    [self.noResultsFoundLabel setHidden:YES];
 }
 
 
