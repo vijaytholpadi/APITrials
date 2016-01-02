@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wPv-N3-qh2">
-                                <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wPv-N3-qh2">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="479"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="D53-HB-Cnw">
                                     <size key="itemSize" width="50" height="50"/>
@@ -41,7 +41,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0y2-DB-gcb" firstAttribute="top" secondItem="wPv-N3-qh2" secondAttribute="bottom" id="Sba-Yy-ktv"/>
+                            <constraint firstItem="0y2-DB-gcb" firstAttribute="top" secondItem="wPv-N3-qh2" secondAttribute="bottom" constant="-48" id="Sba-Yy-ktv"/>
                             <constraint firstItem="wPv-N3-qh2" firstAttribute="leading" secondItem="5dc-SX-Ta1" secondAttribute="leading" id="UQo-FJ-QSQ"/>
                             <constraint firstItem="wPv-N3-qh2" firstAttribute="top" secondItem="A9z-GY-oVC" secondAttribute="bottom" constant="-64" id="cwu-K7-5EU"/>
                             <constraint firstAttribute="trailing" secondItem="wPv-N3-qh2" secondAttribute="trailing" id="g3K-Sb-94v"/>
@@ -93,7 +93,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GOg-c3-bTm" firstAttribute="top" secondItem="j76-1h-vc0" secondAttribute="bottom" id="3PT-ol-z8y"/>
+                            <constraint firstItem="GOg-c3-bTm" firstAttribute="top" secondItem="j76-1h-vc0" secondAttribute="bottom" constant="-48" id="3PT-ol-z8y"/>
                             <constraint firstItem="j76-1h-vc0" firstAttribute="leading" secondItem="XBJ-h3-5b1" secondAttribute="leading" id="FC7-mw-klw"/>
                             <constraint firstAttribute="trailing" secondItem="j76-1h-vc0" secondAttribute="trailing" id="SoY-Bm-weE"/>
                             <constraint firstItem="j76-1h-vc0" firstAttribute="top" secondItem="pLm-HQ-1Y4" secondAttribute="bottom" constant="-64" id="UyH-TS-Ld3"/>
@@ -123,7 +123,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Umw-m7-4nT">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="479"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9DT-jj-roG">
                                     <size key="itemSize" width="50" height="50"/>
@@ -149,7 +149,7 @@
                             <constraint firstItem="Umw-m7-4nT" firstAttribute="leading" secondItem="iba-F2-zax" secondAttribute="leading" id="I4G-8i-ref"/>
                             <constraint firstAttribute="trailing" secondItem="Umw-m7-4nT" secondAttribute="trailing" id="NwI-n1-qXr"/>
                             <constraint firstItem="Umw-m7-4nT" firstAttribute="top" secondItem="Nj6-Xt-kwx" secondAttribute="bottom" constant="-64" id="RGc-6j-9kz"/>
-                            <constraint firstItem="rMX-oq-9IT" firstAttribute="top" secondItem="Umw-m7-4nT" secondAttribute="bottom" id="hmJ-Yk-THi"/>
+                            <constraint firstItem="rMX-oq-9IT" firstAttribute="top" secondItem="Umw-m7-4nT" secondAttribute="bottom" constant="-48" id="hmJ-Yk-THi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gcC-b3-MdH"/>
@@ -186,7 +186,7 @@
         <scene sceneID="vQN-Ed-eWd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zzA-pW-CQR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pics" id="puq-KI-cAM"/>
+                    <tabBarItem key="tabBarItem" title="Pics" image="Pics" id="puq-KI-cAM"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jcV-ZK-Pc4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -205,7 +205,7 @@
         <scene sceneID="OXY-cI-eg6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xCm-oG-T5T" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Funny" id="vVd-vc-D0O"/>
+                    <tabBarItem key="tabBarItem" title="Funny" image="Funny" id="vVd-vc-D0O"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HKn-yf-MRd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -224,7 +224,7 @@
         <scene sceneID="kuB-e0-qN9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="z2Y-PJ-hfg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Gaming" id="M2H-wY-CmS"/>
+                    <tabBarItem key="tabBarItem" title="Gaming" image="Gaming" id="M2H-wY-CmS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Iqj-Fv-ru7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -240,4 +240,9 @@
             <point key="canvasLocation" x="675" y="1886"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Funny" width="25" height="25"/>
+        <image name="Gaming" width="35" height="35"/>
+        <image name="Pics" width="25" height="25"/>
+    </resources>
 </document>
