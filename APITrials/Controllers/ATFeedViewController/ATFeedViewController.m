@@ -158,7 +158,7 @@ static NSString *feedCollectionViewCellID = @"ATFeedCollectionViewCell";
 //
 //
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 5.0f;
+    return 0.0f;
 }
 
 
