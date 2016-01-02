@@ -16,6 +16,16 @@
 		CDC1BDE91C36436D00D956E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC1BDE71C36436D00D956E0 /* LaunchScreen.storyboard */; };
 		CDC1BDF41C36436D00D956E0 /* APITrialsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC1BDF31C36436D00D956E0 /* APITrialsTests.m */; };
 		CDC1BDFF1C36436D00D956E0 /* APITrialsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC1BDFE1C36436D00D956E0 /* APITrialsUITests.m */; };
+		CDC1BE161C366ECA00D956E0 /* ATFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC1BE151C366ECA00D956E0 /* ATFeedViewController.m */; };
+		CDC1BE1F1C3672F600D956E0 /* ATNetworkRoutes.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC1BE1E1C3672F600D956E0 /* ATNetworkRoutes.m */; };
+		CDC1BE2B1C367B7900D956E0 /* VTError.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC1BE241C367B7900D956E0 /* VTError.m */; };
+		CDC1BE2C1C367B7900D956E0 /* VTNetworkingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC1BE271C367B7900D956E0 /* VTNetworkingHelper.m */; };
+		CDC1BE2D1C367B7900D956E0 /* VTNetworkResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC1BE2A1C367B7900D956E0 /* VTNetworkResponse.m */; };
+		CDC1BE321C367C5E00D956E0 /* VTNoInternetView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC1BE301C367C5E00D956E0 /* VTNoInternetView.m */; };
+		CDC1BE331C367C5E00D956E0 /* VTNoInternetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDC1BE311C367C5E00D956E0 /* VTNoInternetView.xib */; };
+		CDC1BE371C36840000D956E0 /* ATStory.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC1BE361C36840000D956E0 /* ATStory.m */; };
+		CDC1BE3C1C36FAD700D956E0 /* ATFeedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC1BE3A1C36FAD700D956E0 /* ATFeedCollectionViewCell.m */; };
+		CDC1BE3D1C36FAD700D956E0 /* ATFeedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDC1BE3B1C36FAD700D956E0 /* ATFeedCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +64,24 @@
 		CDC1BDFA1C36436D00D956E0 /* APITrialsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APITrialsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC1BDFE1C36436D00D956E0 /* APITrialsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APITrialsUITests.m; sourceTree = "<group>"; };
 		CDC1BE001C36436D00D956E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDC1BE141C366ECA00D956E0 /* ATFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATFeedViewController.h; sourceTree = "<group>"; };
+		CDC1BE151C366ECA00D956E0 /* ATFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATFeedViewController.m; sourceTree = "<group>"; };
+		CDC1BE1D1C3672F600D956E0 /* ATNetworkRoutes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATNetworkRoutes.h; sourceTree = "<group>"; };
+		CDC1BE1E1C3672F600D956E0 /* ATNetworkRoutes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATNetworkRoutes.m; sourceTree = "<group>"; };
+		CDC1BE231C367B7900D956E0 /* VTError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTError.h; sourceTree = "<group>"; };
+		CDC1BE241C367B7900D956E0 /* VTError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTError.m; sourceTree = "<group>"; };
+		CDC1BE261C367B7900D956E0 /* VTNetworkingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTNetworkingHelper.h; sourceTree = "<group>"; };
+		CDC1BE271C367B7900D956E0 /* VTNetworkingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNetworkingHelper.m; sourceTree = "<group>"; };
+		CDC1BE291C367B7900D956E0 /* VTNetworkResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTNetworkResponse.h; sourceTree = "<group>"; };
+		CDC1BE2A1C367B7900D956E0 /* VTNetworkResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNetworkResponse.m; sourceTree = "<group>"; };
+		CDC1BE2F1C367C5E00D956E0 /* VTNoInternetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTNoInternetView.h; sourceTree = "<group>"; };
+		CDC1BE301C367C5E00D956E0 /* VTNoInternetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNoInternetView.m; sourceTree = "<group>"; };
+		CDC1BE311C367C5E00D956E0 /* VTNoInternetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTNoInternetView.xib; sourceTree = "<group>"; };
+		CDC1BE351C36840000D956E0 /* ATStory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATStory.h; sourceTree = "<group>"; };
+		CDC1BE361C36840000D956E0 /* ATStory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATStory.m; sourceTree = "<group>"; };
+		CDC1BE391C36FAD700D956E0 /* ATFeedCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATFeedCollectionViewCell.h; sourceTree = "<group>"; };
+		CDC1BE3A1C36FAD700D956E0 /* ATFeedCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATFeedCollectionViewCell.m; sourceTree = "<group>"; };
+		CDC1BE3B1C36FAD700D956E0 /* ATFeedCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATFeedCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +143,14 @@
 		CDC1BDD51C36436D00D956E0 /* APITrials */ = {
 			isa = PBXGroup;
 			children = (
+				CDC1BE0C1C366E7E00D956E0 /* Categories */,
+				CDC1BE0D1C366E7E00D956E0 /* Controllers */,
+				CDC1BE0E1C366E7E00D956E0 /* Models */,
+				CDC1BE0F1C366E7E00D956E0 /* Resources */,
+				CDC1BE201C367B7900D956E0 /* Library */,
+				CDC1BE101C366E7E00D956E0 /* Subclass */,
+				CDC1BE111C366E7E00D956E0 /* Vendor */,
+				CDC1BE121C366E7E00D956E0 /* Views */,
 				CDC1BDD91C36436D00D956E0 /* AppDelegate.h */,
 				CDC1BDDA1C36436D00D956E0 /* AppDelegate.m */,
 				CDC1BDDF1C36436D00D956E0 /* Main.storyboard */,
@@ -151,6 +187,160 @@
 				CDC1BE001C36436D00D956E0 /* Info.plist */,
 			);
 			path = APITrialsUITests;
+			sourceTree = "<group>";
+		};
+		CDC1BE0C1C366E7E00D956E0 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		CDC1BE0D1C366E7E00D956E0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CDC1BE131C366EBF00D956E0 /* ATFeedViewController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CDC1BE0E1C366E7E00D956E0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CDC1BE341C3683F100D956E0 /* ATStory */,
+				CDC1BE171C3672A900D956E0 /* NetworkModels */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CDC1BE0F1C366E7E00D956E0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CDC1BE101C366E7E00D956E0 /* Subclass */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Subclass;
+			sourceTree = "<group>";
+		};
+		CDC1BE111C366E7E00D956E0 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		CDC1BE121C366E7E00D956E0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CDC1BE381C36FABE00D956E0 /* ATFeedCollectionViewCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CDC1BE131C366EBF00D956E0 /* ATFeedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CDC1BE141C366ECA00D956E0 /* ATFeedViewController.h */,
+				CDC1BE151C366ECA00D956E0 /* ATFeedViewController.m */,
+			);
+			path = ATFeedViewController;
+			sourceTree = "<group>";
+		};
+		CDC1BE171C3672A900D956E0 /* NetworkModels */ = {
+			isa = PBXGroup;
+			children = (
+				CDC1BE1C1C3672F600D956E0 /* ATNetworkRoutes */,
+			);
+			path = NetworkModels;
+			sourceTree = "<group>";
+		};
+		CDC1BE1C1C3672F600D956E0 /* ATNetworkRoutes */ = {
+			isa = PBXGroup;
+			children = (
+				CDC1BE1D1C3672F600D956E0 /* ATNetworkRoutes.h */,
+				CDC1BE1E1C3672F600D956E0 /* ATNetworkRoutes.m */,
+			);
+			path = ATNetworkRoutes;
+			sourceTree = "<group>";
+		};
+		CDC1BE201C367B7900D956E0 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				CDC1BE211C367B7900D956E0 /* Helpers */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		CDC1BE211C367B7900D956E0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CDC1BE2E1C367C5E00D956E0 /* VTNoInternetView */,
+				CDC1BE221C367B7900D956E0 /* VTError */,
+				CDC1BE251C367B7900D956E0 /* VTNetworkHelper */,
+				CDC1BE281C367B7900D956E0 /* VTNetworkResponse */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		CDC1BE221C367B7900D956E0 /* VTError */ = {
+			isa = PBXGroup;
+			children = (
+				CDC1BE231C367B7900D956E0 /* VTError.h */,
+				CDC1BE241C367B7900D956E0 /* VTError.m */,
+			);
+			path = VTError;
+			sourceTree = "<group>";
+		};
+		CDC1BE251C367B7900D956E0 /* VTNetworkHelper */ = {
+			isa = PBXGroup;
+			children = (
+				CDC1BE261C367B7900D956E0 /* VTNetworkingHelper.h */,
+				CDC1BE271C367B7900D956E0 /* VTNetworkingHelper.m */,
+			);
+			path = VTNetworkHelper;
+			sourceTree = "<group>";
+		};
+		CDC1BE281C367B7900D956E0 /* VTNetworkResponse */ = {
+			isa = PBXGroup;
+			children = (
+				CDC1BE291C367B7900D956E0 /* VTNetworkResponse.h */,
+				CDC1BE2A1C367B7900D956E0 /* VTNetworkResponse.m */,
+			);
+			path = VTNetworkResponse;
+			sourceTree = "<group>";
+		};
+		CDC1BE2E1C367C5E00D956E0 /* VTNoInternetView */ = {
+			isa = PBXGroup;
+			children = (
+				CDC1BE2F1C367C5E00D956E0 /* VTNoInternetView.h */,
+				CDC1BE301C367C5E00D956E0 /* VTNoInternetView.m */,
+				CDC1BE311C367C5E00D956E0 /* VTNoInternetView.xib */,
+			);
+			path = VTNoInternetView;
+			sourceTree = "<group>";
+		};
+		CDC1BE341C3683F100D956E0 /* ATStory */ = {
+			isa = PBXGroup;
+			children = (
+				CDC1BE351C36840000D956E0 /* ATStory.h */,
+				CDC1BE361C36840000D956E0 /* ATStory.m */,
+			);
+			path = ATStory;
+			sourceTree = "<group>";
+		};
+		CDC1BE381C36FABE00D956E0 /* ATFeedCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CDC1BE391C36FAD700D956E0 /* ATFeedCollectionViewCell.h */,
+				CDC1BE3A1C36FAD700D956E0 /* ATFeedCollectionViewCell.m */,
+				CDC1BE3B1C36FAD700D956E0 /* ATFeedCollectionViewCell.xib */,
+			);
+			path = ATFeedCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		FCAEF635A708A63B8742516D /* Pods */ = {
@@ -267,8 +457,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDC1BE331C367C5E00D956E0 /* VTNoInternetView.xib in Resources */,
 				CDC1BDE91C36436D00D956E0 /* LaunchScreen.storyboard in Resources */,
 				CDC1BDE61C36436D00D956E0 /* Assets.xcassets in Resources */,
+				CDC1BE3D1C36FAD700D956E0 /* ATFeedCollectionViewCell.xib in Resources */,
 				CDC1BDE11C36436D00D956E0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,8 +519,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDC1BE1F1C3672F600D956E0 /* ATNetworkRoutes.m in Sources */,
+				CDC1BE2D1C367B7900D956E0 /* VTNetworkResponse.m in Sources */,
 				CDC1BDDB1C36436D00D956E0 /* AppDelegate.m in Sources */,
+				CDC1BE2B1C367B7900D956E0 /* VTError.m in Sources */,
+				CDC1BE161C366ECA00D956E0 /* ATFeedViewController.m in Sources */,
+				CDC1BE321C367C5E00D956E0 /* VTNoInternetView.m in Sources */,
+				CDC1BE371C36840000D956E0 /* ATStory.m in Sources */,
 				CDC1BDD81C36436D00D956E0 /* main.m in Sources */,
+				CDC1BE3C1C36FAD700D956E0 /* ATFeedCollectionViewCell.m in Sources */,
+				CDC1BE2C1C367B7900D956E0 /* VTNetworkingHelper.m in Sources */,
 				CDC1BDE41C36436D00D956E0 /* APITrials.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
