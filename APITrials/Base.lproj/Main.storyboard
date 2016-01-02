@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Feed View Controller-->
         <scene sceneID="tlg-pr-H1S">
             <objects>
-                <viewController id="NSs-fx-qE0" sceneMemberID="viewController">
+                <viewController id="NSs-fx-qE0" customClass="ATFeedViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="A9z-GY-oVC"/>
                         <viewControllerLayoutGuide type="bottom" id="0y2-DB-gcb"/>
@@ -19,7 +19,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wPv-N3-qh2">
                                 <rect key="frame" x="0.0" y="20" width="320" height="411"/>
-                                <color key="backgroundColor" red="1" green="0.32156862749999998" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="D53-HB-Cnw">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -43,21 +43,24 @@
                         <constraints>
                             <constraint firstItem="0y2-DB-gcb" firstAttribute="top" secondItem="wPv-N3-qh2" secondAttribute="bottom" id="Sba-Yy-ktv"/>
                             <constraint firstItem="wPv-N3-qh2" firstAttribute="leading" secondItem="5dc-SX-Ta1" secondAttribute="leading" id="UQo-FJ-QSQ"/>
-                            <constraint firstItem="wPv-N3-qh2" firstAttribute="top" secondItem="A9z-GY-oVC" secondAttribute="bottom" id="cwu-K7-5EU"/>
+                            <constraint firstItem="wPv-N3-qh2" firstAttribute="top" secondItem="A9z-GY-oVC" secondAttribute="bottom" constant="-64" id="cwu-K7-5EU"/>
                             <constraint firstAttribute="trailing" secondItem="wPv-N3-qh2" secondAttribute="trailing" id="g3K-Sb-94v"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kKJ-ic-hJ0"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="funnyCollectionView" destination="wPv-N3-qh2" id="EgC-1I-njs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lYn-9p-xVS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1207" y="1336"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed View Controller-->
         <scene sceneID="AJa-VD-weO">
             <objects>
-                <viewController id="JZJ-Cm-cC6" sceneMemberID="viewController">
+                <viewController id="JZJ-Cm-cC6" customClass="ATFeedViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pLm-HQ-1Y4"/>
                         <viewControllerLayoutGuide type="bottom" id="GOg-c3-bTm"/>
@@ -68,7 +71,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="j76-1h-vc0">
                                 <rect key="frame" x="0.0" y="20" width="320" height="411"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gji-fc-r4z">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -93,21 +96,24 @@
                             <constraint firstItem="GOg-c3-bTm" firstAttribute="top" secondItem="j76-1h-vc0" secondAttribute="bottom" id="3PT-ol-z8y"/>
                             <constraint firstItem="j76-1h-vc0" firstAttribute="leading" secondItem="XBJ-h3-5b1" secondAttribute="leading" id="FC7-mw-klw"/>
                             <constraint firstAttribute="trailing" secondItem="j76-1h-vc0" secondAttribute="trailing" id="SoY-Bm-weE"/>
-                            <constraint firstItem="j76-1h-vc0" firstAttribute="top" secondItem="pLm-HQ-1Y4" secondAttribute="bottom" id="UyH-TS-Ld3"/>
+                            <constraint firstItem="j76-1h-vc0" firstAttribute="top" secondItem="pLm-HQ-1Y4" secondAttribute="bottom" constant="-64" id="UyH-TS-Ld3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9DP-y7-XeD"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="gamingCollectionView" destination="j76-1h-vc0" id="9sK-td-sj8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IiF-dJ-Z6X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1207" y="1886"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed View Controller-->
         <scene sceneID="SbQ-ed-p49">
             <objects>
-                <viewController id="a0w-XB-o4Z" sceneMemberID="viewController">
+                <viewController id="a0w-XB-o4Z" customClass="ATFeedViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Nj6-Xt-kwx"/>
                         <viewControllerLayoutGuide type="bottom" id="rMX-oq-9IT"/>
@@ -116,9 +122,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Umw-m7-4nT">
-                                <rect key="frame" x="0.0" y="20" width="320" height="411"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Umw-m7-4nT">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9DT-jj-roG">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -142,12 +148,15 @@
                         <constraints>
                             <constraint firstItem="Umw-m7-4nT" firstAttribute="leading" secondItem="iba-F2-zax" secondAttribute="leading" id="I4G-8i-ref"/>
                             <constraint firstAttribute="trailing" secondItem="Umw-m7-4nT" secondAttribute="trailing" id="NwI-n1-qXr"/>
-                            <constraint firstItem="Umw-m7-4nT" firstAttribute="top" secondItem="Nj6-Xt-kwx" secondAttribute="bottom" id="RGc-6j-9kz"/>
+                            <constraint firstItem="Umw-m7-4nT" firstAttribute="top" secondItem="Nj6-Xt-kwx" secondAttribute="bottom" constant="-64" id="RGc-6j-9kz"/>
                             <constraint firstItem="rMX-oq-9IT" firstAttribute="top" secondItem="Umw-m7-4nT" secondAttribute="bottom" id="hmJ-Yk-THi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gcC-b3-MdH"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="picsCollectionView" destination="Umw-m7-4nT" id="1Oi-iN-85V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="up8-lA-UQY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
